@@ -6,7 +6,8 @@ OBS plugin providing a filter for automatically refreshing a browser source in a
 - Currently only working on Windows (tested only on Windows 10, but Windows 11 should also work)
 
 ## Usage
-After installation [open the filter settings](https://obsproject.com/wiki/Filters-Guide) for a browser source and add the "Browser Auto-refresh" filter, then configure the refresh interval.
+After installation [open the filter settings](https://obsproject.com/wiki/Filters-Guide) for a browser source and add the "Browser Auto-refresh" filter, then configure the refresh interval to your liking.
+
 ![image](https://user-images.githubusercontent.com/528974/218328552-299a2016-5b1d-40e2-8adc-31e9f398caba.png)
 
 Note that the filter will be active and browser refreshes will be triggered even if the eye icon next to the filter is disabled. Only when the browser source it was added to is hidden the filter will no longer trigger auto-refreshes on it.
@@ -27,7 +28,7 @@ Note that the filter will be active and browser refreshes will be triggered even
 
 ## For developers
 ### C#
-OBS Classic still had a [CLR Host Pluguin](https://obsproject.com/forum/resources/clr-host-plugin.21/), but ever since we moved on to OBS Studio writing plugins in C# wasn't possible anymore. This has changed as of recently.
+OBS Classic still had a [CLR Host Plugin](https://obsproject.com/forum/resources/clr-host-plugin.21/), but with OBS Studio writing plugins in C# wasn't possible anymore. This has changed as of recently.
 The catch about this plugin is that at its day of release (January 12, 2023) to my knowledge it's the first OBS Studio plugin ever written in C# that has some real-world use. The very first without real-world use was [this](https://github.com/kostya9/DotnetObsPluginWithNativeAOT) example plugin demonstrating the basic concept of writing an OBS Studio plugin using .NET 7 and NativeAOT.
 
 ### Compiling
