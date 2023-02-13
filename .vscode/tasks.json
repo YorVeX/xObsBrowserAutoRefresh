@@ -23,12 +23,20 @@
             }
         },
         {
+            "label": "publish and release",
+            "type": "shell",
+            "command": ".\\release.cmd",
+            "dependsOrder": "sequence",
+            "dependsOn": ["publish"],
+            "problemMatcher": "$msCompile"
+        },
+        {
             "label": "test",
             "type": "shell",
             "command": ".\\test.local.cmd"
         },
         {
-            "label": "publish-and-test",
+            "label": "publish and test",
             "type": "shell",
             "command": ".\\test.local.cmd",
             "dependsOrder": "sequence",
