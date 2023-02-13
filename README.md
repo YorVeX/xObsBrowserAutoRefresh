@@ -1,6 +1,9 @@
 # xObsBrowserAutoRefresh
 OBS plugin providing a filter for automatically refreshing a browser source in a configurable interval.
 
+![image](https://user-images.githubusercontent.com/528974/218346677-28e55647-9f63-4818-a547-7d751a755172.png)
+
+
 ## Prerequisites
 - OBS 29+ 64 bit
 - Currently only working on Windows (tested only on Windows 10, but Windows 11 should also work)
