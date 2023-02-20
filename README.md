@@ -34,9 +34,8 @@ Note that the filter will be active and browser refreshes will be triggered even
 OBS Classic still had a [CLR Host Plugin](https://obsproject.com/forum/resources/clr-host-plugin.21/), but with OBS Studio writing plugins in C# wasn't possible anymore. This has changed as of recently.
 The catch about this plugin is that at its day of release (January 12, 2023) to my knowledge it's the first OBS Studio plugin ever written in C# that has some real-world use. The very first without real-world use was [this](https://github.com/kostya9/DotnetObsPluginWithNativeAOT) example plugin demonstrating the basic concept of writing an OBS Studio plugin using .NET 7 and NativeAOT.
 
-### Compiling
-Generally the included build.cmd file is executing the necessary command to create the build, but some prerequisites need to be installed in the system first.
-This section will be detailed out later. For now refer to the blog posts linked in the Credits section for more information.
+### Building
+Refer to the [building instructions for my example plugin](https://github.com/YorVeX/ObsCSharpExample#building), they will also apply here.
 
 ## Credits
 Many thanks to [kostya9](https://github.com/kostya9) for laying the groundwork of C# OBS Studio plugin creation, without him this plugin (and hopefully many more C# plugins following in the future) wouldn't exist. Read about his ventures into this area in his blog posts [here](https://sharovarskyi.com/blog/posts/dotnet-obs-plugin-with-nativeaot/) and [here](https://sharovarskyi.com/blog/posts/clangsharp-dotnet-interop-bindings/). 
