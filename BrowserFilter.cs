@@ -44,7 +44,7 @@ public class BrowserFilter
     if ((browserSource == null) || !Convert.ToBoolean(Obs.obs_source_active(browserSource)))
       return;
 
-    new Thread(() =>
+    new Task(() =>
     {
       var sourceProperties = Obs.obs_source_properties(browserSource);
       fixed (byte* refreshButtonId = "refreshnocache"u8)
@@ -62,7 +62,7 @@ public class BrowserFilter
         }
         ObsProperties.obs_properties_destroy(sourceProperties);
       }
-    }).Start();
+    });
   }
   #endregion Helper methods
 
