@@ -47,7 +47,7 @@ public class BrowserFilter
     new Thread(() =>
     {
       var sourceProperties = Obs.obs_source_properties(browserSource);
-      fixed (byte* refreshButtonId = Encoding.UTF8.GetBytes("refreshnocache"))
+      fixed (byte* refreshButtonId = "refreshnocache"u8)
       {
         var property = ObsProperties.obs_properties_get(sourceProperties, (sbyte*)refreshButtonId);
         if (property != null) // could be null if this filter is applied on something that is not a browser source
@@ -71,7 +71,7 @@ public class BrowserFilter
   public static unsafe sbyte* filter_get_name(void* data)
   {
     Module.Log("filter_get_name called", ObsLogLevel.Debug);
-    fixed (byte* logMessagePtr = Encoding.UTF8.GetBytes("Browser Auto-refresh"))
+    fixed (byte* logMessagePtr = "Browser Auto-refresh"u8)
       return (sbyte*)logMessagePtr;
   }
 
@@ -83,7 +83,7 @@ public class BrowserFilter
     Context* context = (Context*)Marshal.AllocCoTaskMem(sizeof(Context));
     context->Source = source;
     context->Settings = settings;
-    fixed (byte* intervalId = Encoding.UTF8.GetBytes("interval"))
+    fixed (byte* intervalId = "interval"u8)
       context->RefreshIntervalSeconds = (int)ObsData.obs_data_get_int(settings, (sbyte*)intervalId);
     return (void*)context;
   }
@@ -119,7 +119,7 @@ public class BrowserFilter
 
     var properties = ObsProperties.obs_properties_create();
     fixed (byte*
-      intervalId = Encoding.UTF8.GetBytes("interval"),
+      intervalId = "interval"u8,
       intervalCaption = Module.ObsText("IntervalCaption"),
       intervalText = Module.ObsText("IntervalText")
     )
@@ -134,7 +134,7 @@ public class BrowserFilter
   public static unsafe void filter_get_defaults(obs_data* settings)
   {
     Module.Log("filter_get_defaults called", ObsLogLevel.Debug);
-    fixed (byte* intervalId = Encoding.UTF8.GetBytes("interval"))
+    fixed (byte* intervalId = "interval"u8)
       ObsData.obs_data_set_default_int(settings, (sbyte*)intervalId, 60);
   }
 
@@ -143,7 +143,7 @@ public class BrowserFilter
   {
     var context = (Context*)data;
     Module.Log("filter_save called", ObsLogLevel.Debug);
-    fixed (byte* intervalId = Encoding.UTF8.GetBytes("interval"))
+    fixed (byte* intervalId = "interval"u8)
       context->RefreshIntervalSeconds = (int)ObsData.obs_data_get_int(settings, (sbyte*)intervalId);
     Module.Log("Browser auto refresh interval was set to " + context->RefreshIntervalSeconds + " second(s)", ObsLogLevel.Debug);
   }
