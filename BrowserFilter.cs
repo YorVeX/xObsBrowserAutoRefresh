@@ -80,7 +80,7 @@ public class BrowserFilter
   {
     Module.Log("filter_create called", ObsLogLevel.Debug);
 
-    Context* context = (Context*)Marshal.AllocCoTaskMem(sizeof(Context));
+    var context = Module.bzalloc<Context>(); //TODO: change this after this was implemented: https://github.com/kostya9/NetObsBindings/issues/13
     context->Source = source;
     context->Settings = settings;
     fixed (byte* intervalId = "interval"u8)
@@ -109,7 +109,7 @@ public class BrowserFilter
   public static unsafe void filter_destroy(void* data)
   {
     Module.Log("filter_destroy called", ObsLogLevel.Debug);
-    Marshal.FreeCoTaskMem((IntPtr)data);
+    ObsBmem.bfree(data);
   }
 
   [UnmanagedCallersOnly(CallConvs = new[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
