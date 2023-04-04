@@ -4,7 +4,7 @@
 using System.Runtime.InteropServices;
 using System.Text;
 using ObsInterop;
-namespace ObsCSharpExample;
+namespace xObsBrowserAutoRefresh;
 
 public enum ObsLogLevel : int
 {
@@ -63,7 +63,7 @@ public static class Module
         return resultString;
     }
   }
-  
+
   /// <summary>Allocates memory for an unmanaged structure using OBS memory management and initializes all fields in it to zero.</summary>
   /// <typeparam name="T">The type of the structure to allocate.</typeparam>
   /// <returns>A pointer to the allocated memory.</returns>
@@ -102,7 +102,7 @@ public static class Module
   public static unsafe bool obs_module_load()
   {
     Log("Loading...", ObsLogLevel.Debug);
-    
+
     BrowserFilter.Register();
     var assemblyName = System.Reflection.Assembly.GetExecutingAssembly().GetName();
     Version version = assemblyName.Version!;

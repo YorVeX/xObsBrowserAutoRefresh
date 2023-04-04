@@ -4,7 +4,7 @@
 using System.Runtime.InteropServices;
 using System.Text;
 using ObsInterop;
-namespace ObsCSharpExample;
+namespace xObsBrowserAutoRefresh;
 
 public class BrowserFilter
 {
@@ -95,7 +95,7 @@ public class BrowserFilter
   public static unsafe void filter_show(void* data)
   {
     Module.Log("filter_show called", ObsLogLevel.Debug);
-    
+
     var context = (Context*)data;
     context->SecondsWaited = 0; // if a browser refresh on show is wanted this can be configured in the browser source, the assumption here is that the interval starts from the time the browser source is being shown
     context->Active = true;
