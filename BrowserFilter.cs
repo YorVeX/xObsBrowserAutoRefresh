@@ -47,7 +47,7 @@ public class BrowserFilter
     if ((browserSource == null) || !Convert.ToBoolean(Obs.obs_source_active(browserSource)))
       return;
 
-    new Task(() =>
+    Task.Run(() =>
     {
       var sourceProperties = Obs.obs_source_properties(browserSource);
       fixed (byte* refreshButtonId = "refreshnocache"u8)
