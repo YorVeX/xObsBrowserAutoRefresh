@@ -83,7 +83,7 @@ public class BrowserFilter
   {
     Module.Log("filter_create called", ObsLogLevel.Debug);
 
-    var context = Module.bzalloc<Context>(); //TODO: change this after this was implemented: https://github.com/kostya9/NetObsBindings/issues/13
+    var context = ObsBmem.bzalloc<Context>();
     context->Source = source;
     context->Settings = settings;
     fixed (byte* intervalId = "interval"u8)
