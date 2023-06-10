@@ -149,6 +149,9 @@ public class BrowserFilter
     fixed (byte* intervalId = "interval"u8)
       context->RefreshIntervalSeconds = (int)ObsData.obs_data_get_int(settings, (sbyte*)intervalId);
     Module.Log("Browser auto refresh interval was set to " + context->RefreshIntervalSeconds + " second(s)", ObsLogLevel.Debug);
+    
+    var browserSource = Obs.obs_filter_get_parent(context->Source);
+    context->Active = (browserSource != null) && Convert.ToBoolean(Obs.obs_source_active(browserSource)); // this ensures any newly added filter to immediately start refreshing if the browser source is visible
   }
 
   [UnmanagedCallersOnly(CallConvs = new[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
