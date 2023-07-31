@@ -44,7 +44,7 @@ public class BrowserFilter
     //TODO: feature: freeze the source display for a configurable amount of time during refresh to prevent flickering
     Module.Log("RefreshBrowserSource called", ObsLogLevel.Debug);
     var browserSource = Obs.obs_filter_get_parent(context->Source);
-    if ((browserSource == null) || !Convert.ToBoolean(Obs.obs_source_active(browserSource)))
+    if ((browserSource == null) || !Convert.ToBoolean(Obs.obs_source_showing(browserSource)))
       return;
 
     Task.Run(() =>
@@ -152,7 +152,7 @@ public class BrowserFilter
     context->SecondsWaited = 0; // any setting change should reset the timer
     
     var browserSource = Obs.obs_filter_get_parent(context->Source);
-    context->Active = (browserSource != null) && Convert.ToBoolean(Obs.obs_source_active(browserSource)); // this ensures any newly added filter to immediately start refreshing if the browser source is visible
+    context->Active = (browserSource != null) && Convert.ToBoolean(Obs.obs_source_showing(browserSource)); // this ensures any newly added filter to immediately start refreshing if the browser source is visible
   }
 
   [UnmanagedCallersOnly(CallConvs = new[] { typeof(System.Runtime.CompilerServices.CallConvCdecl) })]
