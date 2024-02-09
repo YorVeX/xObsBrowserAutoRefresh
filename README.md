@@ -62,7 +62,7 @@ The steps to update an older version of the plugin to a newer version are the sa
 
 ### Settings
 
-After installation [open the filter settings](https://obsproject.com/wiki/Filters-Guide) for a browser source and add the "Browser Auto-refresh" filter, then configure the refresh interval to your liking. Find more detailed instructions on how to use the filter in [this post](https://obsproject.com/forum/threads/xobsbrowserautorefresh-timed-automatic-browser-source-refreshing.164318/post-612881).
+After installation [open the filter settings](https://obsproject.com/kb/filters-guide) for a browser source and add the "Browser Auto-refresh" filter, then configure the refresh interval to your liking. Find more detailed instructions on how to use the filter in [this post](https://obsproject.com/forum/threads/xobsbrowserautorefresh-timed-automatic-browser-source-refreshing.164318/post-612881).
 
 ![image](https://user-images.githubusercontent.com/528974/218328552-299a2016-5b1d-40e2-8adc-31e9f398caba.png)
 
