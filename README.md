@@ -23,7 +23,9 @@ For portable mode on Windows simply extract the .7z file into the root directory
 <details>
 <summary>🟦 Windows</summary>
 
-Extract the downloaded .7z file (= copy the contained obs-plugins and data folders) into the OBS Studio installation directory. The default location for this is
+For automatic installation just run the provided installer, then restart OBS.
+
+For manual installation extract the downloaded .7z file (= copy the contained obs-plugins and data folders) into the OBS Studio installation directory. The default location for this is
 
 `C:\Program Files\obs-studio`
 
