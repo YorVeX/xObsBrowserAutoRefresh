@@ -5,19 +5,20 @@ OBS plugin providing a filter for automatically refreshing a browser source in a
 
 
 ## Prerequisites
-- OBS 29+ 64 bit
-- Windows
-  - tested only on Windows 10, but Windows 11 should also work
+- OBS 32+ 64 bit (find older releases on GitHub for 29+ support)
+- Windows 11
 - Linux
   - occasionally tested, but not regularly
-  - binary build created on Ubuntu 20.04 WSL environment, therefore linked against glibc 2.31
+  - binary build created on Ubuntu 22.04 WSL environment, therefore linked against glibc 2.35
+- macOS Monterey 12.0.1
+  - both x64 (Intel) and arm64 (Apple Silicon) supported
 
 ## Usage
 
 ### Installation
 Before installing make sure that OBS is not running.
 
-For portable mode simply extract the .7z file into the root directory of the portable folder structure. For regular OBS installations see the operating system specific instructions below.
+For portable mode on Windows simply extract the .7z file into the root directory of the portable folder structure. For regular OBS installations see the operating system specific instructions below.
 
 <details>
 <summary>🟦 Windows</summary>
@@ -58,6 +59,19 @@ If in doubt, please check where other "en-US.ini" files are located on your syst
 
 </details>
 
+<details>
+<summary>🍎 macOS</summary>
+
+For automatic installation just run the provided installer, then restart OBS.
+
+For manual installation extract the downloaded .tar.xz file (= copy the contained .plugin folder) into the OBS Studio library data directory. The default location for this is
+
+`~/Library/Application Support/obs-studio/plugins`
+
+To uninstall, remove the manually installed files or run the separately provided uninstaller package - don't get confused when it's acting like an installation process, all it does is uninstall the files and unregister the original package from the system.
+
+</details>
+
 The steps to update an older version of the plugin to a newer version are the same, except that during file extraction you need to confirm overwriting existing files in addition.
 
 ### Settings
@@ -70,11 +84,6 @@ Note that the filter will be active and browser refreshes will be triggered even
 
 
 ## FAQ
-- **Q**: Why is the plugin file so big compared to other plugins for the little bit it does, will this cause issues?
-  - **A**: Unlike other plugins it's not written directly in C++ but in C# using .NET 7 and NativeAOT (for more details read on in the section for developers). This produces some overhead in the actual plugin file, however, the code that matters for functionality of this plugin should be just as efficient and fast as code directly written in C++ so there's no reason to worry about performance on your system.
-
-- **Q**: Will there be a version for MacOS?
-  - **A**: NativeAOT [doesn't support cross-compiling](https://github.com/dotnet/runtime/blob/main/src/coreclr/nativeaot/docs/compiling.md#cross-architecture-compilation) and I don't have a Mac, so I currently can't compile it, let alone test it. You can try to compile it yourself, but note that MacOS [is currently only supported by the next preview version of .NET 8](https://learn.microsoft.com/en-us/dotnet/core/deploying/native-aot/#platformarchitecture-restrictions), although people [do already successfully create builds](https://github.com/dotnet/runtime/issues/79253) with it.
 
 - **Q**: Will there be a 32 bit version of this plugin?
   - **A**: No. Feel free to try and compile it for x86 targets yourself, last time I checked it wasn't fully supported in NativeAOT.
